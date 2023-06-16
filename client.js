@@ -14,4 +14,4 @@ const connect = function () {
   return conn;
 };
 
-export.module = {connect};
+module.exports = connect;
