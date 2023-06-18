@@ -1,7 +1,8 @@
-const {keyActions,keyMessageActions} = require('./constants')
+const {keyActions,keyMessageActions} = require('./constants');
 // stores the active TCP connection object
 let connection;
-let currentKey; //for setting the interval for when movement key is pressed
+let previousKey = null;
+let previousInterval = null;
 
 const handleUserInput = function(key) {
   if (key === '\u0003') {
@@ -11,15 +12,25 @@ const handleUserInput = function(key) {
 
   if (key in keyMessageActions) {
     keyMessageActions[key](connection);
-  } 
+  }
+
+  //if pressed key is same as previous key, make no changes
+  if (key === previousKey) { 
+    return;
+  }
+  
+  //if pressed key is different, we need to clear the intervals
+  if (previousInterval) {
+    clearInterval(previousInterval);
+    previousInterval = null;
+  }
 
   if (key in keyActions) {
-    if(currentKey) {
-      clearInterval(currentKey); //clears the setInterval from when you press a movement key
-    }
-    currentKey = keyActions[key](connection); //sets the movement + currentInterval
+    previousKey = key;
+    previousInterval = keyActions[key](connection); // sets the movement + currentInterval
   }
 };
+
 
 const setupInput = (conn) => {
   connection = conn;
