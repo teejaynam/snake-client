@@ -9,7 +9,7 @@ Snake is a game where you control a dot and a tail (snake) 🐍, and collect dot
 ---
 ## How to set up
 
-To be able to play this game you must downlsoad and install the server side of the game [here](https://github.com/taniarascia/snek)
+To be able to play this game you must download and install the server side of the game [here](https://github.com/taniarascia/snek)
 ___
 ## How to play
 
