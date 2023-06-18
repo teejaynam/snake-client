@@ -12,7 +12,7 @@ const keyActions = {
 const keyMessageActions = {
   b: (connection) => connection.write("Say: BANANA!!"),
   n: (connection) => connection.write("Say: NUTELLA!!"),
-}
+};
 
 module.exports = {
   IP,
@@ -20,4 +20,4 @@ module.exports = {
   NAME,
   keyActions,
   keyMessageActions
-}
+};
