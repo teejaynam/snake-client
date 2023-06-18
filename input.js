@@ -15,7 +15,7 @@ const handleUserInput = function(key) {
   }
 
   //if pressed key is same as previous key, make no changes
-  if (key === previousKey) { 
+  if (key === previousKey) {
     return;
   }
   
